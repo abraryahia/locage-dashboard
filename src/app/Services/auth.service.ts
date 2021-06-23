@@ -15,7 +15,6 @@ export class AuthService {
   private isLogin: BehaviorSubject<boolean>;
   init() {
     let token = this.getToken();
-    if (token) this.currentUserDetails();
   }
   constructor(private http: HttpClient, private router: Router) {
     this.isLogin = new BehaviorSubject<boolean>(false);
