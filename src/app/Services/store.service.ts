@@ -12,4 +12,14 @@ export class StoreService {
   getOnHoldStores() {
     return this.http.get(`${this.uri}hold`);
   }
+  getAllStores(){
+    return this.http.get(`${this.uri}`);
+  }
+  approveStores(id:any) {
+    return this.http.get(`${this.uri}${id}/status`);
+  }
+  disapproveStores(id:any) {
+    return this.http.delete(`${this.uri}${id}/status`);
+  }
+
 }
