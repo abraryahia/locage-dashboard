@@ -37,4 +37,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: "Category",
+    icon: "grid-outline",
+    link: "admin",
+    home: true,
+    children: [
+      {
+        title: "Categories",
+        link: "/admin/category/all",
+      },
+      {
+        title: "Categories Insights",
+        link: "/admin/category/product-count",
+      },
+    ],
+  },
 ];

@@ -10,6 +10,8 @@ import { AllStoresComponent } from './vendor/all-stores/all-stores.component';
 import { TopDealsComponent } from './product/top-deals/top-deals.component';
 import { TodayDealsComponent } from './product/today-deals/today-deals.component';
 import { AllComponent } from './product/all/all.component';
+import { AllCategoriesComponent } from './category/all/all.component';
+import { ProductsCountComponent } from './category/products-count/products-count.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { AllComponent } from './product/all/all.component';
     AllStoresComponent,
     TopDealsComponent,
     TodayDealsComponent,
-    AllComponent
+    AllComponent,
+    AllCategoriesComponent,
+    ProductsCountComponent
   ],
   imports: [
     CommonModule,
