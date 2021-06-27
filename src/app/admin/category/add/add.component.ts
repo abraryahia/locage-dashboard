@@ -11,7 +11,7 @@ import { CategoryService } from '../../../Services/Category.service';
 export class AddComponent implements OnInit {
 
   categories: Category[];
-  formData:FormData=new FormData(); 
+  formData: FormData = new FormData(); 
 
   constructor(private categoryService: CategoryService) { }
 
@@ -30,8 +30,6 @@ export class AddComponent implements OnInit {
     additionConfirmation.style.display = 'none';
     categorySpinner.style.display = 'block';
     this.formData.append('name', categoryForm.value.name.toString());
-    console.log(this.formData);
-    console.log(categoryForm);
     this.categoryService.addCategory(this.formData).subscribe((result: any) => {
       categorySpinner.style.display = 'none';
       additionConfirmation.style.display = 'block';
@@ -39,5 +37,24 @@ export class AddComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+  /* ------------------------------------------------------------------------------------------------------------ */
+
+  onSubcategoryImageSelect(event: any) {
+    const selectedfile = event.target.files[0];
+    this.formData.append('photo', selectedfile, selectedfile.name);
+  }
+
+  onAddSubcategory(subcategoryForm: NgForm, subcategorySpinner: any, subAdditionConfirmation: any) {
+    subAdditionConfirmation.style.display = 'none';
+    subcategorySpinner.style.display = 'block';
+    this.formData.append('name', subcategoryForm.value.subname.toString());
+    this.categoryService.addSubcategory(this.formData, subcategoryForm.value.categoryId).subscribe((result: any) => {
+      subcategorySpinner.style.display = 'none';
+      subAdditionConfirmation.style.display = 'block';
+      subcategoryForm.reset();
+    });
+  }
+
 
 }

@@ -15,10 +15,10 @@
       <td>{{ item?.phoneNumber }}</td>
       <td>{{ item?.address?.city }}, {{ item?.address?.country }}</td>
       <td>
-        <button class="btn-success" (click)="approve(item._id)">
+        <button class="btn btn-success" (click)="approve(item._id)">
           <i class="fa fa-check-circle" aria-hidden="true"></i>
         </button>
-        <button class="btn-danger" (click)="disapprove(item._id)">
+        <button class="btn btn-danger ml-1" (click)="disapprove(item._id)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </td>
