@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin.component";
+import { AddComponent } from "./category/add/add.component";
 import { AllCategoriesComponent } from "./category/all/all.component";
 import { ProductsCountComponent } from "./category/products-count/products-count.component";
 import { AllComponent } from "./product/all/all.component";
@@ -26,6 +27,7 @@ const routes: Routes = [
       //category
       { path: "category/all", component: AllCategoriesComponent },
       { path: "category/product-count", component: ProductsCountComponent },
+      { path: "category/add", component: AddComponent },
 
     ],
   },

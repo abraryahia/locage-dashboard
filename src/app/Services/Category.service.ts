@@ -31,4 +31,8 @@ export class CategoryService {
   getSubCategoryOfMaincategory(categorId) {
     return this.http.get(this.apiCategory + "/" + categorId);
   }
+
+  addCategory(formData: FormData) {
+    return this.http.post(this.apiCategory, formData);
+  }
 }

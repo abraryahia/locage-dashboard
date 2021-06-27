@@ -51,6 +51,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: "Categories Insights",
         link: "/admin/category/product-count",
       },
+      {
+        title: "Add Category",
+        link: "/admin/category/add",
+      },
     ],
   },
 ];
