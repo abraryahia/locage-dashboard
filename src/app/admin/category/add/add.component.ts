@@ -35,6 +35,7 @@ export class AddComponent implements OnInit {
       additionConfirmation.style.display = 'block';
       categoryForm.reset();
       this.ngOnInit();
+      this.formData = new FormData();
     });
   }
 

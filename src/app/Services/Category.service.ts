@@ -39,4 +39,12 @@ export class CategoryService {
   addSubcategory(formData: FormData, categoryId: String) {
     return this.http.post(this.apiCategory + '/' + categoryId + '/subcategory', formData);
   }
+
+  deleteCategory(categoryId: String) {
+    return this.http.delete(this.apiCategory + '/' + categoryId);
+  }
+
+  editCategory(formData: FormData, categoryId: String) {
+    return this.http.patch(this.apiCategory + '/' + categoryId, formData);
+  }
 }

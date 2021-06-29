@@ -44,7 +44,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
     children: [
       {
-        title: "Categories",
+        title: "All Categories",
         link: "/admin/category/all",
       },
       {

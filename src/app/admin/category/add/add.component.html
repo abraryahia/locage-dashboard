@@ -1,7 +1,9 @@
 <div class="row offset-1 col-11 mt-5">
     <div class="card col-5">
         <div class="card-body">
-            <h5 class="card-title" style="color: #3366ff;">Add Category</h5>
+            <h4 class="card-title" style="color: #3366ff;">Add Category</h4>
+            <br />
+            <br />
             <form (submit)="onAddCategory(categoryForm, categorySpinner, additionConfirmation)" #categoryForm="ngForm">
                 <label style="color: grey">Name</label>
                 <div class="input-group mb-3">
@@ -50,7 +52,9 @@
 
     <div class="card offset-1 col-5">
         <div class="card-body">
-            <h5 class="card-title" style="color: #3366ff;">Add Subcategory</h5>
+            <h4 class="card-title" style="color: #3366ff;">Add Subcategory</h4>
+            <br />
+            <br />
             <form (submit)="onAddSubcategory(subcategoryForm, subcategorySpinner, subAdditionConfirmation)" #subcategoryForm="ngForm">
                 <label style="color: grey">Name</label>
                 <div class="input-group mb-3">
