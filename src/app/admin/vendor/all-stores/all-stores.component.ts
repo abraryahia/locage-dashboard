@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { StoreModel } from '../../../Models/Store';
 import { StoreService } from '../../../Services/store.service';
 
@@ -9,12 +10,21 @@ import { StoreService } from '../../../Services/store.service';
 })
 export class AllStoresComponent implements OnInit {
   stores: StoreModel[];
-  constructor(private storeService: StoreService) {}
+  p:number ;
+  totalItems:number;
+  constructor(private storeService: StoreService,private router: Router,private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.storeService.getAllStores().subscribe((result:any)=>{
+      this.gty(this.p);
+  }
+  gty(page:any){
+    this.storeService.getAllStores(page).subscribe((result:any)=>{
       this.stores = result.stores;
+      this.totalItems = result.totalDocs;
     })
+  }
+  review(id:any){
+    this.router.navigate(["../../review/vendor/"+id], { relativeTo: this.activatedRoute });
   }
 
 }

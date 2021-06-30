@@ -36,5 +36,29 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: "/admin/product/today-deal",
       },
     ],
-  },
+  },,{
+    title: 'Order',
+  icon: 'shopping-cart-outline',
+  link: "admin",
+  home: true,
+  children: [
+    {
+      title: "All Orders",
+      link: "/admin/order/all-order",
+    }
+  ]
+},{
+  title: "Discount",
+  icon: "gift-outline",
+  link: "admin",
+  home: true,
+  children: [
+    {
+      title: "All Discount",
+      link: "/admin/discount/all-discount",
+    },
+    {
+      title: "Add Discount",
+      link: "/admin/discount/add-discount",
+    },
 ];

@@ -9,11 +9,19 @@ import { ProductAdminService } from '../../../Services/product-admin.service';
 })
 export class TodayDealsComponent implements OnInit {
   products: Product[];
+  p:number;
+  totalItems:number;
+
   constructor(private productAdminService: ProductAdminService) {}
 
   ngOnInit(): void {
-    this.productAdminService.getTodayDeals().subscribe((result: any) => {      
+    this.gty(this.p);
+   
+  }
+  gty(page:any){
+    this.productAdminService.getTodayDeals(page).subscribe((result: any) => {      
       this.products = result.result.docs;
+      this.totalItems = result.result.totalDocs;
     });
   }
 
