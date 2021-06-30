@@ -4,10 +4,17 @@
             <h4 class="card-title" style="color: #3366ff;">Add Category</h4>
             <br />
             <br />
-            <form (submit)="onAddCategory(categoryForm, categorySpinner, additionConfirmation)" #categoryForm="ngForm">
+            <form (submit)="onAddCategory(categoryForm, categorySpinner, additionConfirmation, errorMessage)" #categoryForm="ngForm">
                 <label style="color: grey">Name</label>
                 <div class="input-group mb-3">
-                    <input type="text" placeholder="Category name" class="form-control" name="name" required ngModel #name />
+                    <input 
+                    type="text" 
+                    placeholder="Category name" 
+                    class="form-control" 
+                    name="name" 
+                    required 
+                    ngModel 
+                    #name/>
                 </div>
 
                 <br />
@@ -44,6 +51,10 @@
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </span>
                 </div>
+
+                <div role="status" style="display: none; color: red;" #errorMessage>
+                    <span>Name and image fields are required. </span>
+                </div>
                 
             </form>
         </div>
@@ -56,7 +67,7 @@
             <h4 class="card-title" style="color: #3366ff;">Add Subcategory</h4>
             <br />
             <br />
-            <form (submit)="onAddSubcategory(subcategoryForm, subcategorySpinner, subAdditionConfirmation)" #subcategoryForm="ngForm">
+            <form (submit)="onAddSubcategory(subcategoryForm, subcategorySpinner, subAdditionConfirmation, suberrorMessage)" #subcategoryForm="ngForm">
                 <label style="color: grey">Name</label>
                 <div class="input-group mb-3">
                     <input type="text" placeholder="Subcategory name" class="form-control" name="subname" required ngModel #subname />
@@ -101,6 +112,10 @@
                     <span>Subcategory added! 
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </span>
+                </div>
+
+                <div role="status" style="display: none; color: red;" #suberrorMessage>
+                    <span>Name, category and image fields are required. </span>
                 </div>
             </form>
         </div>

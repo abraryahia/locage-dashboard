@@ -26,19 +26,22 @@ export class AddComponent implements OnInit {
     this.formData.append('photo', selectedfile, selectedfile.name);
   }
 
-  onAddCategory(categoryForm: NgForm, categorySpinner: any, additionConfirmation: any) {
-    additionConfirmation.style.display = 'none';
-    categorySpinner.style.display = 'block';
+  onAddCategory(categoryForm: NgForm, categorySpinner: any, additionConfirmation: any, errorMessage: any) {
+    additionConfirmation.style.display = "none";
+    categorySpinner.style.display = "block";
     this.formData.append('name', categoryForm.value.name.toString());
     this.categoryService.addCategory(this.formData).subscribe((result: any) => {
-      categorySpinner.style.display = 'none';
-      additionConfirmation.style.display = 'block';
+      categorySpinner.style.display = "none";
+      additionConfirmation.style.display = "block";
       categoryForm.reset();
       this.ngOnInit();
       this.formData.delete('name');
+      errorMessage.style.display = "none";
     },
     (error: Error) => {
+      categorySpinner.style.display = "none";
       this.formData.delete('name');
+      errorMessage.style.display = "block";
     });
   }
 
@@ -49,7 +52,7 @@ export class AddComponent implements OnInit {
     this.formData.append('photo', selectedfile, selectedfile.name);
   }
 
-  onAddSubcategory(subcategoryForm: NgForm, subcategorySpinner: any, subAdditionConfirmation: any) {
+  onAddSubcategory(subcategoryForm: NgForm, subcategorySpinner: any, subAdditionConfirmation: any, suberrorMessage: any) {
     subAdditionConfirmation.style.display = 'none';
     subcategorySpinner.style.display = 'block';
     this.formData.append('name', subcategoryForm.value.subname.toString());
@@ -58,9 +61,14 @@ export class AddComponent implements OnInit {
       subAdditionConfirmation.style.display = 'block';
       subcategoryForm.reset();
       this.formData.delete('name');
+      this.formData.delete('photo');
+      suberrorMessage.style.display = "none";
     },
     (error: Error) => {
+      subcategorySpinner.style.display = 'none';
       this.formData.delete('name');
+      this.formData.delete('photo');
+      suberrorMessage.style.display = "block";
     });
   }
 

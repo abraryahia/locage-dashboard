@@ -25,7 +25,7 @@ export class SubcategoryComponent implements OnInit {
       this.subcategories = result.result;
     });
 
-    // get all categories to populate dropdown menu
+    // get all categories to populate category dropdown menu
     this.categoryService.getAllCategory().subscribe((result: any) => {
       this.categories = result.result;
     });
@@ -33,7 +33,6 @@ export class SubcategoryComponent implements OnInit {
 
   // save the data of the subcategory to edit or delete on modal open
   openModal(_subcategory: Subcategory) {
-    console.log(_subcategory)
     this.subcategory = _subcategory;
   }
 
@@ -50,7 +49,6 @@ export class SubcategoryComponent implements OnInit {
   }
 
   onEditSubcategory(subcategoryForm: NgForm) {
-    console.log(this.subcategory.name)
     this.formData.append('name', 
       (subcategoryForm.value.name)? subcategoryForm.value.name : this.subcategory.name
     );
@@ -61,10 +59,12 @@ export class SubcategoryComponent implements OnInit {
       this.ngOnInit();
       this.formData.delete('name');
       this.formData.delete('categoryId');
+      this.formData.delete('photo');
     },
     (error: Error) => {
       this.formData.delete('name');
       this.formData.delete('categoryId');
+      this.formData.delete('photo');
     });
   }
 
