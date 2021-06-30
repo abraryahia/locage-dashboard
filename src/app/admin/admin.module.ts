@@ -14,6 +14,7 @@ import { AllComponent } from './product/all/all.component';
 import { AllCategoriesComponent } from './category/all/all.component';
 import { ProductsCountComponent } from './category/products-count/products-count.component';
 import { AddComponent } from './category/add/add.component';
+import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AddComponent } from './category/add/add.component';
     AllComponent,
     AllCategoriesComponent,
     ProductsCountComponent,
-    AddComponent
+    AddComponent,
+    SubcategoryComponent
   ],
   imports: [
     CommonModule,
