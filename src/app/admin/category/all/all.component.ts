@@ -40,11 +40,16 @@ export class AllCategoriesComponent implements OnInit {
   }
 
   onEditCategory(categoryForm: NgForm) {
-    this.formData.append('name', categoryForm.value.name.toString() || this.category.name);
+    this.formData.append('name', (categoryForm.value.name)? categoryForm.value.name : this.category.name);
     this.categoryService.editCategory(this.formData, this.category._id).subscribe((result: any) => {
       categoryForm.reset();
       this.ngOnInit();
-      this.formData = new FormData();
+      this.formData.delete('name');
+      this.formData.delete('photo');
+    },
+    (error: any) => {
+      this.formData.delete('name');
+      this.formData.delete('photo');
     });
   }
 
