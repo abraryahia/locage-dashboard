@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Subcategory } from '../Models/subCategory';
 
 
 @Injectable({
@@ -13,6 +14,14 @@ export class SubcategoryService {
 
   getSubcategories() {
     return this.http.get(this.subcategoryAPI);
+  }
+
+  deleteSubcategory(id: string) {
+    return this.http.delete(this.subcategoryAPI + '/' + id);
+  }
+
+  editSubcategory(id: string, subcategory: FormData) {
+    return this.http.patch(this.subcategoryAPI + '/' + id, subcategory);
   }
 
 }

@@ -1,4 +1,4 @@
-export interface SubCategory {
+export interface Subcategory {
   _id: any;
   name: string;
   photo: string;
