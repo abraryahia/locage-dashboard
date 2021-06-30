@@ -36,7 +36,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: "/admin/product/today-deal",
       },
     ],
-  },,{
+  },
+  ,{
     title: 'Order',
   icon: 'shopping-cart-outline',
   link: "admin",
@@ -61,4 +62,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
       title: "Add Discount",
       link: "/admin/discount/add-discount",
     },
+  ]}
 ];
