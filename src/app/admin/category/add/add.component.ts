@@ -35,7 +35,10 @@ export class AddComponent implements OnInit {
       additionConfirmation.style.display = 'block';
       categoryForm.reset();
       this.ngOnInit();
-      this.formData = new FormData();
+      this.formData.delete('name');
+    },
+    (error: Error) => {
+      this.formData.delete('name');
     });
   }
 
@@ -54,6 +57,10 @@ export class AddComponent implements OnInit {
       subcategorySpinner.style.display = 'none';
       subAdditionConfirmation.style.display = 'block';
       subcategoryForm.reset();
+      this.formData.delete('name');
+    },
+    (error: Error) => {
+      this.formData.delete('name');
     });
   }
 

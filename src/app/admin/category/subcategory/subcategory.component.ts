@@ -62,7 +62,7 @@ export class SubcategoryComponent implements OnInit {
       this.formData.delete('name');
       this.formData.delete('categoryId');
     },
-    (error: any) => {
+    (error: Error) => {
       this.formData.delete('name');
       this.formData.delete('categoryId');
     });

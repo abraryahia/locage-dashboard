@@ -47,7 +47,7 @@ export class AllCategoriesComponent implements OnInit {
       this.formData.delete('name');
       this.formData.delete('photo');
     },
-    (error: any) => {
+    (error: Error) => {
       this.formData.delete('name');
       this.formData.delete('photo');
     });
