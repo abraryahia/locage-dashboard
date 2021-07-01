@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Review } from "../../../Models/Review";
 import { ReviewService } from "../../../Services/review.service";
 
@@ -17,7 +17,6 @@ export class VendorReviewComponent implements OnInit {
 
   constructor(
     private reviewService: ReviewService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -30,10 +29,7 @@ export class VendorReviewComponent implements OnInit {
       .getVendorReview(page, this.id)
       .subscribe((result: any) => {
         this.vendor = result.VENDOR;
-        console.log(this.vendor);
-
         this.product = result.result;
-        console.log(this.product);
       });
   }
 }
