@@ -10,19 +10,41 @@ export class CategoryService {
 
   Categories: Category[] = [];
   private categoryLoad = new Subject<Category[]>();
-  private readonly apiCategory = "https://locage.herokuapp.com/api/v1/category";
+  private readonly apiCategory = "https://locage.herokuapp.com/api/v1/admin/category";
 
   getCategoryWithoutLoad() {
     return this.categoryLoad.asObservable();
   }
+
   getAllCategory() {
-    this.http.get(this.apiCategory).subscribe((c: any) => {
-      this.Categories = c?.result;
-      this.categoryLoad.next([...this.Categories]);
-    });
+    return this.http.get(this.apiCategory);
+  }
+
+  getcategoriesWithSubcategories() {
+    return this.http.get(this.apiCategory + "/all");
+  }
+
+  getCategoriesWithProducts() {
+    return this.http.get(this.apiCategory + "/products");
   }
 
   getSubCategoryOfMaincategory(categorId) {
     return this.http.get(this.apiCategory + "/" + categorId);
+  }
+
+  addCategory(formData: FormData) {
+    return this.http.post(this.apiCategory, formData);
+  }
+
+  addSubcategory(formData: FormData, categoryId: String) {
+    return this.http.post(this.apiCategory + '/' + categoryId + '/subcategory', formData);
+  }
+
+  deleteCategory(categoryId: String) {
+    return this.http.delete(this.apiCategory + '/' + categoryId);
+  }
+
+  editCategory(formData: FormData, categoryId: String) {
+    return this.http.patch(this.apiCategory + '/' + categoryId, formData);
   }
 }

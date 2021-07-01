@@ -8,7 +8,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ProductService } from '../../../Services/Product.service';
 import { NbWindowService } from '@nebular/theme';
 import * as moment from 'moment';
-import { SubCategory } from '../../../Models/subCategory';
+import { Subcategory } from '../../../Models/subCategory';
 
 @Component({
   selector: 'app-AddProduct',
@@ -30,7 +30,7 @@ export class AddProductComponent implements OnInit {
   selectedMainCategory: Category = null;
   Selectedsubcategory: any ;
   Categories: Category[]=[];
-  subCategory:SubCategory[]=[];
+  subCategory:Subcategory[]=[];
   Colors: any[] = [];
   customColor: string[] = ["red", "black", "green", "blue","#f4f9f9","#aaaaaa"]  //this array to custom color
   images: string[] = [];

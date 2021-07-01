@@ -1,6 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin.component";
+import { AddComponent } from "./category/add/add.component";
+import { AllCategoriesComponent } from "./category/all/all.component";
+import { ProductsCountComponent } from "./category/products-count/products-count.component";
+import { SubcategoryComponent } from "./category/subcategory/subcategory.component";
 import { AllComponent } from "./product/all/all.component";
 import { TodayDealsComponent } from "./product/today-deals/today-deals.component";
 import { TopDealsComponent } from "./product/top-deals/top-deals.component";
@@ -44,6 +48,13 @@ const routes: Routes = [
       //review
       {path:"review/product/:id",component:ProductReviewComponent},
       {path:"review/vendor/:id",component:VendorReviewComponent},
+      //category
+      { path: "category/all", component: AllCategoriesComponent },
+      { path: "category/product-count", component: ProductsCountComponent },
+      { path: "category/add", component: AddComponent },
+
+      //subcatgory
+      { path: "subcategories", component: SubcategoryComponent },
 
     ],
   },

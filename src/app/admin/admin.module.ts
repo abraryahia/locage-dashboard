@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { NbMenuModule ,
@@ -22,6 +23,10 @@ import { EditDiscountComponent } from './discount/edit-discount/edit-discount.co
 import { VendorReviewComponent } from './review/vendor-review/vendor-review.component';
 import { ProductReviewComponent } from './review/product-review/product-review.component';
 
+import { AllCategoriesComponent } from './category/all/all.component';
+import { ProductsCountComponent } from './category/products-count/products-count.component';
+import { AddComponent } from './category/add/add.component';
+import { SubcategoryComponent } from './category/subcategory/subcategory.component';
 
 
 @NgModule({
@@ -38,11 +43,17 @@ import { ProductReviewComponent } from './review/product-review/product-review.c
     AddDiscountComponent,
     EditDiscountComponent,
     VendorReviewComponent,
-    ProductReviewComponent
+    ProductReviewComponent,
+    AllCategoriesComponent,
+    ProductsCountComponent,
+    AddComponent,
+    SubcategoryComponent
   ],
   imports: [
     NgxPaginationModule,
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     AdminRoutingModule,
     NbMenuModule,
     ThemeModule,

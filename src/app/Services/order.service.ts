@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Order } from '../Models/Order';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ getOrdersVendor(){
 
 
     })
- })).subscribe((order)=>{
+ })).subscribe((order: any)=>{
     console.log(order);
     this.orders=[...order];
     this.ordersLoad.next([...this.orders]);
