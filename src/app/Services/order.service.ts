@@ -21,7 +21,6 @@ getOrdersVendor(){
   })
  return this.http.get(this.api,{headers}).pipe(map((or:any)=>{
     return or?.result?.docs.map((o:any)=>{
-         console.log(o);
 
         return {
           _id:o._id,
@@ -36,7 +35,6 @@ getOrdersVendor(){
 
     })
  })).subscribe((order: any)=>{
-    console.log(order);
     this.orders=[...order];
     this.ordersLoad.next([...this.orders]);
 

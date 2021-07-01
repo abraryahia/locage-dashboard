@@ -46,7 +46,6 @@ export class FormEditProductComponent implements OnInit {
   this.max = this.dateService.addMonth(this.dateService.today(), 2);
   // this.min = moment().subtract(1, 'months').startOf('month').toDate();
   // this.max = moment().add(1, 'months').endOf('month').toDate();
-    console.log(this.min, this.max);
 
     this.formEdit=this.fb.group({
       _id: [''],
@@ -70,7 +69,6 @@ export class FormEditProductComponent implements OnInit {
 
 
     this._product.getProductById(this.id ).subscribe((data: any)=>{
-      console.log(data);
       this.product = data;
   if (data?.discountDate) {
 
@@ -78,10 +76,8 @@ export class FormEditProductComponent implements OnInit {
     let end = new Date(data.discountDate.end);
     data.discountDate = {start, end}
   }
-      console.log();
 
       this.formEdit.patchValue(data)
-      console.log(this.formEdit);
 
     })
 
@@ -93,17 +89,14 @@ export class FormEditProductComponent implements OnInit {
 
   /*================================ handeler datepicker ==============================*/
   handleDateChange(event) {
-    console.log('ev', event);
 
     let start = moment.utc(event.start, "DD-MM-YYYY", true).toDate();
 
     if (event.end) {
 
       let end = moment.utc(event.end, "DD-MM-YYYY", true).toDate();
-      console.log(start);
 
       this.formEdit.get('discountDate').setValue({start:start , end :end})
-      console.log(this.formEdit.get('discountDate').value);
     }
    }
 
@@ -123,7 +116,6 @@ export class FormEditProductComponent implements OnInit {
       let color = this.selectedColor;
        // this.formEdit.get("selectedColor").value;
        this.product.color.push(color);
-      console.log(color);
 
     }
     deletColor(_color){
@@ -136,10 +128,8 @@ export class FormEditProductComponent implements OnInit {
     }
 
     update(){
-      console.log(this.formEdit.value);
       let data= this.formEdit.value;
       this._product.editProduct(data);
-      console.log(data);
 
       this.showToast("success","Updated Valid  ","your Product is Updated ");
 

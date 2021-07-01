@@ -36,11 +36,8 @@ export class VendorService {
    let headers = new HttpHeaders({
      'authorization': "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpbmF3YWhlZWRAZ21haWwuY29tIiwiaWQiOiI2MGJmYzZhNDczNDY5ZjAwMmU4NGRhMGIiLCJpYXQiOjE2MjUwODE4NDQsImV4cCI6MTYyNTE2ODI0NH0.LZhU5AMVXqG1OO4rumfwMxlvXN4COBw_ItrA0mYIly8"
    })
-   console.log(_vendor);
  
-   this.http.patch(this.url+'/'+id,_vendor,{headers}).subscribe((d:any)=>{
-     console.log(d);
- 
+   this.http.patch(this.url+'/'+id,_vendor,{headers}).subscribe((d:any)=>{ 
      this.vendorLoad.next(d?.result);
  
    })

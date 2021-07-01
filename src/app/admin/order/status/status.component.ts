@@ -38,7 +38,6 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
     this.order._id= this.activatedRoute.snapshot.params.id;
-    console.log(this.activatedRoute.snapshot.params.id)
     this.orderAdminService.getOrder(this.order._id).subscribe((result:any)=>{
       this.order = result.result
 
@@ -72,7 +71,6 @@ export class StatusComponent implements OnInit {
 
   onSubmit(body: any) {
     this.buttonSubmit = true;
-    console.log(body)
     this.orderAdminService.changeStuts(this.order._id , body).subscribe((result:any)=>{
       this.router.navigate(["admin/order/all-order"]);
       }, (e) => {

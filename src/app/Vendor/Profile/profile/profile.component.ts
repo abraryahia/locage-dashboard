@@ -55,7 +55,6 @@ export class ProfileComponent implements OnInit {
 
     this.vendorService.getVendor(id);
     this.vendorService.getVendorWithoutLoad().subscribe((vendor: any) => {
-      console.log(vendor);
       if (vendor.photo != null) {
         this.photo = vendor.photo;
       }
@@ -69,7 +68,6 @@ export class ProfileComponent implements OnInit {
     const file = event.target.files[0];
     this.photo = URL.createObjectURL(file);
     this.data.append("photo", file, file.name);
-    console.log(this.photo);
   }
 
   update() {

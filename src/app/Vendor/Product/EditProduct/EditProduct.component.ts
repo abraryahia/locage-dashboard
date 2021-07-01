@@ -60,7 +60,6 @@ export class EditProductComponent implements OnInit {
       discountDate: {
         title: "DiscountDate",
         valuePrepareFunction: (discount: {start: any, end:any}) => {
-          console.log(discount);
 
           if (discount.start == undefined && discount.end|| discount.start == null && discount.end ==null ) {
             return "No Discount";
@@ -101,7 +100,6 @@ export class EditProductComponent implements OnInit {
   onDelete(event){
 
     this.product_service.deletProduct(event.data._id)
-    console.log(event.data._id);
   }
 
 }

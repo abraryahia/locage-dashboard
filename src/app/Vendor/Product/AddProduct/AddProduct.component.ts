@@ -119,8 +119,6 @@ export class AddProductComponent implements OnInit {
     });
     // this._ctegory.getCategoryWithoutLoad().subscribe((c: any) => {
     //   this.Categories = c;
-    //   console.log("c", c);
-    //   console.log("category", this.Categories);
     // });
     /**========================================================================
      *                         to add range in datepacker

@@ -26,7 +26,6 @@ export class ManageImageComponent implements OnInit {
     this.allProducts=this.productservices.products;
 
     this.productservices.getProductsWithoutLoad().subscribe((pro)=>{
-      console.log(pro)
       this.allProducts=pro;
     })
 
@@ -51,7 +50,6 @@ deleteImage(indexProduct,indexPhoto){
 }
 
 uploadpreviewImge(event, productId) {
-  console.log(event, productId);
 
   let formDta= new FormData()
   formDta.append("_id",productId)

@@ -44,7 +44,6 @@ export class ProductService {
         })
       )
       .subscribe((p) => {
-        console.log(p);
         this.products = p;
         this.productsLoad.next([...this.products]);
       });
@@ -64,7 +63,6 @@ export class ProductService {
         (data) => {
           this.products.push(data.result);
           this.productsLoad.next([...this.products]);
-          console.log(data);
         },
         (error) => {
           console.log(error);
@@ -80,7 +78,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + _product._id, _product)
       .subscribe((res) => {
-        console.log(res);
 
         //  const updateproducts=[...this.products];
         //  let oldIndex= updateproducts.findIndex((i)=>i.id == _product.id);
@@ -116,7 +113,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + productId + "/manage-photos", img)
       .subscribe((res: any) => {
-        console.log(res);
 
         this.products = this.products.map((pro) => {
           if (pro._id == res.result._id) {
