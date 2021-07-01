@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NbDialogService } from '@nebular/theme';
-import { identity } from 'rxjs';
-import { Order } from '../../../Models/Order';
-import { OrderAdminService } from '../../../Services/order-admin.service';
-import { StatusComponent } from '../status/status.component';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { NbDialogService } from "@nebular/theme";
+import { Order } from "../../../Models/Order";
+import { OrderAdminService } from "../../../Services/order-admin.service";
 
 
 @Component({

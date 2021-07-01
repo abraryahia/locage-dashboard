@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Discount } from '../../../Models/Discount';
-import { DiscountService } from '../../../Services/discount.service';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Discount } from "../../../Models/Discount";
+import { DiscountService } from "../../../Services/discount.service";
 
 @Component({
   selector: 'ngx-all-discount',

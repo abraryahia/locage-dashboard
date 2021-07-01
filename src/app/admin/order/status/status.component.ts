@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Order } from '../../../Models/Order';
-import { OrderStatus } from '../../../Models/OrderStatus.enum';
-import { OrderAdminService } from '../../../Services/order-admin.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Order } from "../../../Models/Order";
+import { OrderAdminService } from "../../../Services/order-admin.service";
+
 
 @Component({
   selector: 'ngx-status',
