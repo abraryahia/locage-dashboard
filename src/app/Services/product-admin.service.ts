@@ -9,15 +9,15 @@ export class ProductAdminService {
 
   constructor(private http: HttpClient) {}
 
-  getAll() {
-    return this.http.get(`${this.uri}`);
+  getAll(page:any) {
+    return this.http.get(`${this.uri}?page=${page}`);
   }
 
   getTopDeals() {
     return this.http.get(`${this.uri}top-deals`);
   }
 
-  getTodayDeals() {
-    return this.http.get(`${this.uri}today-deals`);
+  getTodayDeals(page:any) {
+    return this.http.get(`${this.uri}today-deals?page=${page}`);
   }
 }
