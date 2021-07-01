@@ -1,39 +1,39 @@
-import { NbMenuItem } from '@nebular/theme';
+import { NbMenuItem } from "@nebular/theme";
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Product',
-    icon: 'monitor-outline',
-    link: 'vendor',
+    title: "Product",
+    icon: "monitor-outline",
+    link: "vendor",
     home: true,
     children: [
       {
-        title: 'Add Product',
-        link: '/vendor/product/add'
+        title: "Add Product",
+        link: "/vendor/product/add",
       },
       {
-        title: 'Edit Product',
-        link: '/vendor/product/edit'
+        title: "Edit Product",
+        link: "/vendor/product/edit",
       },
       {
-        title: 'Manage Image',
-        link: '/vendor/product/images'
-      }
-    ]
+        title: "Manage Image",
+        link: "/vendor/product/images",
+      },
+    ],
   },
   {
-    title: 'Order',
-    icon: 'shopping-cart-outline',
-    link: 'vendor',
+    title: "Order",
+    icon: "shopping-cart-outline",
+    link: "vendor",
     home: true,
     children: [
       {
-        title: 'Orders',
-        link: '/vendor/order'
-      }
-
-    ]
+        title: "Orders",
+        link: "/vendor/order",
+      },
+    ],
   },
+
   // {
   //   title: 'Promotion',
   //   icon:  "image-outline",
@@ -49,22 +49,33 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
 
   {
-    title: 'Reports',
-    icon: 'pantone-outline',
-    link: 'vendor',
+    title: "Reports",
+    icon: "pantone-outline",
+    link: "vendor",
     home: true,
     children: [
       {
-        title: 'Catalog Perform',
-        link: '/vendor/report/catalog'
+        title: "Catalog Perform",
+        link: "/vendor/report/catalog",
       },
       {
-        title: 'Sales Reports',
-        link: '/vendor/report/sales_report'
-      }
-
-    ]
-  }
+        title: "Sales Reports",
+        link: "/vendor/report/sales_report",
+      },
+    ],
+  },
+  {
+    title: "Setting",
+    icon: "settings-2-outline",
+    link: "vendor",
+    home: true,
+    children: [
+      {
+        title: "Profile",
+        link: "/vendor/profile",
+      },
+    ],
+  },
   // {
   //   title: 'user',
   //   icon: 'shopping-cart-outline',
@@ -322,6 +333,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //       title: 'Reset Password',
   //       link: '/auth/reset-password',
   //     },
-   // ],
+  // ],
   //},
 ];

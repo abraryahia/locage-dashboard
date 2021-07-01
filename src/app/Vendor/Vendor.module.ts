@@ -25,6 +25,7 @@ import { AddProductComponent } from "./Product/AddProduct/AddProduct.component";
 import { EditProductComponent } from "./Product/EditProduct/EditProduct.component";
 import { FormEditProductComponent } from "./Product/EditProduct/FormEditProduct/FormEditProduct.component";
 import { ManageImageComponent } from "./Product/ManageImage/ManageImage.component";
+import { ProfileComponent } from "./Profile/profile/profile.component";
 import { PromotionComponent } from "./Promotion/Promotion/Promotion.component";
 import { CatalogPerformanceComponent } from "./Reports/Catalog-performance/Catalog-performance.component";
 import { SalesReportsComponent } from "./Reports/SalesReports/SalesReports.component";
@@ -63,6 +64,7 @@ import { VendorRoutesModule } from "./Vendor.routing.module";
     SalesReportsComponent,
     CatalogPerformanceComponent,
     FormEditProductComponent,
+    ProfileComponent,
   ],
 
   providers: [ProductService, CategoryService, ReactiveFormsModule],
