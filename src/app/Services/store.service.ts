@@ -12,8 +12,8 @@ export class StoreService {
   getOnHoldStores() {
     return this.http.get(`${this.uri}hold`);
   }
-  getAllStores(){
-    return this.http.get(`${this.uri}`);
+  getAllStores(page:any){
+    return this.http.get(`${this.uri}?page=${page}`);
   }
   approveStores(id:any) {
     return this.http.get(`${this.uri}${id}/status`);

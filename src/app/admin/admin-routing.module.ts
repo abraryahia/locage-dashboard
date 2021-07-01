@@ -10,6 +10,16 @@ import { TodayDealsComponent } from "./product/today-deals/today-deals.component
 import { TopDealsComponent } from "./product/top-deals/top-deals.component";
 import { AllStoresComponent } from "./vendor/all-stores/all-stores.component";
 import { ReviewListComponent } from "./vendor/review-list/review-list.component";
+import { AllOrderComponent } from "./order/all-order/all-order.component";
+import { StatusComponent } from "./order/status/status.component";
+import { AllDiscountComponent } from './discount/all-discount/all-discount.component';
+import { AddDiscountComponent } from './discount/add-discount/add-discount.component';
+import { EditDiscountComponent } from './discount/edit-discount/edit-discount.component';
+import { ProductReviewComponent } from './review/product-review/product-review.component';
+import { VendorReviewComponent } from './review/vendor-review/vendor-review.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -25,6 +35,19 @@ const routes: Routes = [
       { path: "product/top-deal", component: TopDealsComponent },
       { path: "product/today-deal", component: TodayDealsComponent },
 
+
+      //order
+      { path: "order/all-order", component: AllOrderComponent },
+      { path: "order/stutus/:id", component: StatusComponent },
+
+      //discount
+      { path: "discount/all-discount", component: AllDiscountComponent },
+      { path: "discount/add-discount", component: AddDiscountComponent },
+      { path: "discount/edit-discount/:id", component: EditDiscountComponent },
+
+      //review
+      {path:"review/product/:id",component:ProductReviewComponent},
+      {path:"review/vendor/:id",component:VendorReviewComponent},
       //category
       { path: "category/all", component: AllCategoriesComponent },
       { path: "category/product-count", component: ProductsCountComponent },
