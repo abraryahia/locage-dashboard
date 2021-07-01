@@ -17,6 +17,7 @@ import { ThemeModule } from "./@theme/theme.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { jwtOptionsFactory } from "./helpers/intercerptor/JwtOptions";
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { jwtOptionsFactory } from "./helpers/intercerptor/JwtOptions";
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    DashboardModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),

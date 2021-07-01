@@ -24,6 +24,7 @@ import { AllComponent } from "./product/all/all.component";
 import { TodayDealsComponent } from "./product/today-deals/today-deals.component";
 import { TopDealsComponent } from "./product/top-deals/top-deals.component";
 import { ProductReviewComponent } from "./review/product-review/product-review.component";
+import { VendorReviewComponent } from "./review/vendor-review/vendor-review.component";
 import { AllStoresComponent } from "./vendor/all-stores/all-stores.component";
 import { ReviewListComponent } from "./vendor/review-list/review-list.component";
 
@@ -45,6 +46,7 @@ import { ReviewListComponent } from "./vendor/review-list/review-list.component"
     ProductsCountComponent,
     AddComponent,
     SubcategoryComponent,
+    VendorReviewComponent
   ],
   imports: [
     NgxPaginationModule,
