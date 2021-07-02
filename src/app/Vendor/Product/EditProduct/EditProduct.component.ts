@@ -57,9 +57,13 @@ export class EditProductComponent implements OnInit {
       discountDate: {
         title: "DiscountDate",
         valuePrepareFunction: (discount: { start: any; end: any }) => {
-          if (!discount) {
+          if (!this.isValidDate(new Date(discount.start))) {
+            console.log(this.isValidDate(new Date(discount.start)));
+
             return "No Discount";
           } else {
+            console.log(discount);
+
             let start = new Date(discount.start);
             let end = new Date(discount.end);
             return `from ${start.toLocaleDateString()} to ${end.toLocaleDateString()}`;
@@ -76,6 +80,8 @@ export class EditProductComponent implements OnInit {
     this.product_service.getProducts();
     this.source.load(this.product_service.products);
     this.product_service.getProductsWithoutLoad().subscribe((products) => {
+      console.log("hhh", products);
+
       this.source.load(products);
     });
   }
@@ -87,5 +93,9 @@ export class EditProductComponent implements OnInit {
 
   onDelete(event) {
     this.product_service.deletProduct(event.data._id);
+  }
+
+  isValidDate(d: any) {
+    return d instanceof Date && !isNaN(+d);
   }
 }

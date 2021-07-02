@@ -1,8 +1,13 @@
-
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { NbDateService, NbWindowService, NbToastrService, NbComponentStatus, NbGlobalPhysicalPosition } from "@nebular/theme";
+import {
+  NbDateService,
+  NbWindowService,
+  NbToastrService,
+  NbComponentStatus,
+  NbGlobalPhysicalPosition,
+} from "@nebular/theme";
 import * as moment from "moment";
 import { Product } from "../../../../Models/Product";
 import { ProductService } from "../../../../Services/Product.service";
@@ -77,13 +82,38 @@ export class FormEditProductComponent implements OnInit {
 
     this._product.getProductById(this.id).subscribe((data: any) => {
       this.product = data;
-      if (data?.discountDate) {
-        let start = new Date(data.discountDate.start);
-        let end = new Date(data.discountDate.end);
-        data.discountDate = { start, end };
-      }
+
+      console.log(data);
+      console.log(this.product);
 
       this.formEdit.patchValue(data);
+
+      if (data.discountDate.start) {
+        this.date = `${new Date(data.discountDate.start).toLocaleDateString(
+          "en-US",
+          {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          }
+        )} - ${new Date(data.discountDate.start).toLocaleDateString("en-US", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })}`;
+      }
+
+      // if ( data.discountDate.start != null )  {
+
+      //   console.log("d5lt");
+
+      //   let start = new Date(data.discountDate.start);
+      //   let end = new Date(data.discountDate.end);
+      //   data.discountDate = { start, end };
+
+      //   this.date= data.discountDate;
+      // }
+      // this.formEdit.patchValue(data);
     });
   } //* end of onInit
 
@@ -140,5 +170,9 @@ export class FormEditProductComponent implements OnInit {
     const titleContent = title ? `${title}` : "";
 
     this.toast.show(body, `${titleContent}`, config);
+  }
+
+  isValidDate(d: any) {
+    return d instanceof Date && !isNaN(+d);
   }
 }

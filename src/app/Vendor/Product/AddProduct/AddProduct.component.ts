@@ -1,24 +1,12 @@
-import {
-  NbComponentStatus,
-  NbDateService,
-  NbGlobalPhysicalPosition,
-  NbToastrService,
-} from "@nebular/theme";
-import { CustomValidator } from "./../../../common_validator/CustomValidator";
-import {
-  FormBuilder,
-  FormGroup,
-  RequiredValidator,
-  Validators,
-} from "@angular/forms";
-import { CategoryService } from "./../../../Services/Category.service";
-import { Category } from "./../../../Models/Category";
-import { Product } from "./../../../Models/Product";
-import { Component, OnInit, EventEmitter } from "@angular/core";
-import { ProductService } from "../../../Services/Product.service";
-import { NbWindowService } from "@nebular/theme";
+
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { NbDateService, NbWindowService, NbToastrService, NbComponentStatus, NbGlobalPhysicalPosition } from "@nebular/theme";
 import * as moment from "moment";
+import { Category } from "../../../Models/Category";
 import { Subcategory } from "../../../Models/subCategory";
+import { CategoryService } from "../../../Services/Category.service";
+import { ProductService } from "../../../Services/Product.service";
 
 @Component({
   selector: "app-AddProduct",
@@ -57,7 +45,7 @@ export class AddProductComponent implements OnInit {
   product = new FormData();
   product_Inforamtion: FormGroup;
   product_price: FormGroup;
-  categories: FormGroup;
+   categories:FormGroup;
   //*================================ end of variables ==============================*/
 
   constructor(
@@ -77,7 +65,7 @@ export class AddProductComponent implements OnInit {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(60),
-          CustomValidator.checkSpaceInInput,
+
         ],
       ],
 
@@ -87,13 +75,13 @@ export class AddProductComponent implements OnInit {
           Validators.required,
           Validators.minLength(50),
           Validators.maxLength(200),
-          CustomValidator.checkSpaceInInput,
+
         ],
       ],
 
-      brand: ["", [Validators.required, CustomValidator.checkSpaceInInput]],
+      brand: ["", [Validators.required]],
 
-      size: ["", [Validators.required, CustomValidator.checkSpaceInInput]],
+      size: ["", [Validators.required]],
 
       weight: [
         "",
@@ -102,7 +90,7 @@ export class AddProductComponent implements OnInit {
 
       quantity: ["", [Validators.required, Validators.min(1)]],
 
-      sku: ["", [Validators.minLength(5), CustomValidator.checkSpaceInInput]],
+      sku: ["", [Validators.minLength(5)]],
     });
 
     /*================================ validation for product price ==============================*/
@@ -112,10 +100,11 @@ export class AddProductComponent implements OnInit {
       discount: [null, [Validators.min(2)]],
     });
 
-    this.categories = this.fb.group({
-      mainCategory: [null, Validators.required],
-      subCategory: [null, Validators.required],
-    });
+
+    this.categories=this.fb.group({
+      mainCategory:[null,Validators.required],
+      subCategory:[null,Validators.required]
+    })
   }
 
   ngOnInit() {
@@ -143,12 +132,19 @@ export class AddProductComponent implements OnInit {
 
       let end = moment.utc(event.end, "DD-MM-YYYY", true).toDate();
 
-      this.date = { start: start, end: end };
+        this.date = { start: start, end: end };
 
-      this.product_price.updateValueAndValidity();
-    } else {
+        this.product_price.updateValueAndValidity();
+
+
+    }else{
+
       this.product_price.setErrors({});
-      this.showToast("danger", "Ivalid Data  ", "your date is invalid ");
+      this.showToast(
+        "danger",
+        "Ivalid Data  ",
+        "your date is invalid "
+      )
     }
   }
 
@@ -254,16 +250,17 @@ export class AddProductComponent implements OnInit {
     this.product.append("size", this.Size.value);
     this.product.append("quantity", this.Quantity.value);
     this.product.append("discount", this.Discount?.value || 0);
-    this.product.append("discountDate.start", this.date?.start);
-    this.product.append("discountDate.end", this.date?.end);
+    this.product.append("discountDate.start", this.date?.start||null);
+    this.product.append("discountDate.end", this.date?.end || null);
     this.product.append("productSpecifications", this.descriptionSpecifiction);
-    this.product.append(
-      "subcategoryId",
-      this.categories.get("subCategory").value
-    );
+    this.product.append("subcategoryId", this.categories.get('subCategory').value);
     this.product.append("sku", this.Sku.value);
 
     this._product.addProduct(this.product);
+
+
+
+
   }
 
   private showToast(type: NbComponentStatus, title: string, body: string) {
