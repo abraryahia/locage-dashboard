@@ -1,7 +1,7 @@
 import { Product } from "./../Models/Product";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -78,7 +78,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + _product._id, _product)
       .subscribe((res) => {
-
         //  const updateproducts=[...this.products];
         //  let oldIndex= updateproducts.findIndex((i)=>i.id == _product.id);
         //    updateproducts[oldIndex]=_product;
@@ -113,7 +112,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + productId + "/manage-photos", img)
       .subscribe((res: any) => {
-
         this.products = this.products.map((pro) => {
           if (pro._id == res.result._id) {
             pro = res.result;

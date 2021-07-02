@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Category } from "../Models/Category";
 import { Subject } from "rxjs";
@@ -12,12 +12,19 @@ export class CategoryService {
   private categoryLoad = new Subject<Category[]>();
   private readonly apiCategory = "https://locage.herokuapp.com/api/v1/admin/category";
 
+  
   getCategoryWithoutLoad() {
     return this.categoryLoad.asObservable();
   }
 
   getAllCategory() {
     return this.http.get(this.apiCategory);
+  }
+  getCategories(){
+    this.http.get(this.apiCategory).subscribe((data: any)=>{
+      this.Categories = [...data.result];
+      this.categoryLoad.next([...data.result])
+    })
   }
 
   getcategoriesWithSubcategories() {

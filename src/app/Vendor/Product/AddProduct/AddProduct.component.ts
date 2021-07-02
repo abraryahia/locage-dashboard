@@ -57,7 +57,7 @@ export class AddProductComponent implements OnInit {
   product = new FormData();
   product_Inforamtion: FormGroup;
   product_price: FormGroup;
-
+  categories: FormGroup;
   //*================================ end of variables ==============================*/
 
   constructor(
@@ -111,15 +111,18 @@ export class AddProductComponent implements OnInit {
       price: ["", [Validators.required, Validators.min(1)]],
       discount: [null, [Validators.min(2)]],
     });
+
+    this.categories = this.fb.group({
+      mainCategory: [null, Validators.required],
+      subCategory: [null, Validators.required],
+    });
   }
 
   ngOnInit() {
-    this._ctegory.getAllCategory().subscribe((result: any) => {
-      this.Categories = result.result;
+    this._ctegory.getCategories();
+    this._ctegory.getCategoryWithoutLoad().subscribe((c: any) => {
+      this.Categories = c;
     });
-    // this._ctegory.getCategoryWithoutLoad().subscribe((c: any) => {
-    //   this.Categories = c;
-    // });
     /**========================================================================
      *                         to add range in datepacker
      *========================================================================**/
@@ -135,11 +138,17 @@ export class AddProductComponent implements OnInit {
   }
 
   handleDateChange(event) {
-    if (event.start) {
+    if (event.end) {
       let start = moment.utc(event.start, "DD-MM-YYYY", true).toDate();
 
       let end = moment.utc(event.end, "DD-MM-YYYY", true).toDate();
+
       this.date = { start: start, end: end };
+
+      this.product_price.updateValueAndValidity();
+    } else {
+      this.product_price.setErrors({});
+      this.showToast("danger", "Ivalid Data  ", "your date is invalid ");
     }
   }
 
@@ -248,16 +257,13 @@ export class AddProductComponent implements OnInit {
     this.product.append("discountDate.start", this.date?.start);
     this.product.append("discountDate.end", this.date?.end);
     this.product.append("productSpecifications", this.descriptionSpecifiction);
-    this.product.append("subcategoryId", this.Selectedsubcategory);
-    // this.product.append(  'rating',null);
+    this.product.append(
+      "subcategoryId",
+      this.categories.get("subCategory").value
+    );
     this.product.append("sku", this.Sku.value);
 
     this._product.addProduct(this.product);
-    this.showToast(
-      "success",
-      "Operation Created valid  ",
-      "your Product is Created "
-    );
   }
 
   private showToast(type: NbComponentStatus, title: string, body: string) {
