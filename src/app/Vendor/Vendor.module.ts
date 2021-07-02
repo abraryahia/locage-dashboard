@@ -16,6 +16,7 @@ import {
 } from "@nebular/theme";
 import { CKEditorModule } from "ng2-ckeditor";
 import { Ng2SmartTableModule } from "ng2-smart-table";
+import { NgxPaginationModule } from "ngx-pagination";
 import { ThemeModule } from "../@theme/theme.module";
 import { EditorsModule } from "../pages/editors/editors.module";
 import { CategoryService } from "../Services/Category.service";
@@ -53,6 +54,7 @@ import { VendorRoutesModule } from "./Vendor.routing.module";
     Ng2SmartTableModule,
     NbActionsModule,
     NbIconModule,
+    NgxPaginationModule,
   ],
   declarations: [
     VendorComponent,
