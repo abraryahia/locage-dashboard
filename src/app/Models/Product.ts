@@ -5,7 +5,7 @@ export interface Product {
   description:string;
   price:number;
   subcategoryId:any;
-  vendor:any;
+  vendorId:any;
   sku:string;
   quantity:number;
   size:string;

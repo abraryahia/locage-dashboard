@@ -1,16 +1,15 @@
-import { SalesReportsComponent } from "./Reports/SalesReports/SalesReports.component";
-import { CatalogPerformanceComponent } from "./Reports/Catalog-performance/Catalog-performance.component";
-
-import { PromotionComponent } from "./Promotion/Promotion/Promotion.component";
-import { AddProductComponent } from "./Product/AddProduct/AddProduct.component";
-import { OrderComponent } from "./Order/order/order.component";
-import { VendorComponent } from "./Vendor.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { OrderComponent } from "./Order/order/order.component";
+import { AddProductComponent } from "./Product/AddProduct/AddProduct.component";
 import { EditProductComponent } from "./Product/EditProduct/EditProduct.component";
-import { ManageImageComponent } from "./Product/ManageImage/ManageImage.component";
 import { FormEditProductComponent } from "./Product/EditProduct/FormEditProduct/FormEditProduct.component";
+import { ManageImageComponent } from "./Product/ManageImage/ManageImage.component";
 import { ProfileComponent } from "./Profile/profile/profile.component";
+import { PromotionComponent } from "./Promotion/Promotion/Promotion.component";
+import { CatalogPerformanceComponent } from "./Reports/Catalog-performance/Catalog-performance.component";
+import { SalesReportsComponent } from "./Reports/SalesReports/SalesReports.component";
+import { VendorComponent } from "./Vendor.component";
 
 const routes: Routes = [
   {

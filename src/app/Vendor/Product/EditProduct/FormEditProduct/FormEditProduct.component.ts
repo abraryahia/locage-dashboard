@@ -1,23 +1,11 @@
-import { CustomValidator } from "./../../../../common_validator/CustomValidator";
-import {
-  FormBuilder,
-  FormGroup,
-  RequiredValidator,
-  Validators,
-} from "@angular/forms";
 
-import { Product } from "./../../../../Models/Product";
-import { Component, OnInit, EventEmitter } from "@angular/core";
-import { ProductService } from "../../../../Services/Product.service";
-import {
-  NbComponentStatus,
-  NbDateService,
-  NbGlobalPhysicalPosition,
-  NbToastrService,
-} from "@nebular/theme";
-import { NbWindowService } from "@nebular/theme";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+import { NbDateService, NbWindowService, NbToastrService, NbComponentStatus, NbGlobalPhysicalPosition } from "@nebular/theme";
 import * as moment from "moment";
+import { Product } from "../../../../Models/Product";
+import { ProductService } from "../../../../Services/Product.service";
 @Component({
   selector: "app-FormEditProduct",
   templateUrl: "./FormEditProduct.component.html",

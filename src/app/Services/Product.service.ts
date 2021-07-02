@@ -4,12 +4,13 @@ import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { NbComponentStatus, NbGlobalPhysicalPosition, NbToastrService } from "@nebular/theme";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private toast: NbToastrService) {}
   products: Product[] = [];
   private productsLoad = new Subject<Product[]>();
 
@@ -63,11 +64,30 @@ export class ProductService {
         (data) => {
           this.products.push(data.result);
           this.productsLoad.next([...this.products]);
+          this.showToast(
+            "success",
+            "Operation Created valid  ",
+            "your Product is Created "
+          );
         },
         (error) => {
           console.log(error);
+
         }
       );
+  }
+
+  private showToast(type: NbComponentStatus, title: string, body: string) {
+    const config = {
+      status: type,
+      destroyByClick: true,
+      duration: 2000,
+      hasIcon: true,
+      position: NbGlobalPhysicalPosition.TOP_RIGHT,
+      preventDuplicates: true,
+    };
+    const titleContent = title ? `${title}` : "";
+    this.toast.show(body, `${titleContent}`, config);
   }
 
   getProductsWithoutLoad() {
@@ -78,6 +98,7 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + _product._id, _product)
       .subscribe((res) => {
+
         //  const updateproducts=[...this.products];
         //  let oldIndex= updateproducts.findIndex((i)=>i.id == _product.id);
         //    updateproducts[oldIndex]=_product;
@@ -112,6 +133,7 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + productId + "/manage-photos", img)
       .subscribe((res: any) => {
+
         this.products = this.products.map((pro) => {
           if (pro._id == res.result._id) {
             pro = res.result;

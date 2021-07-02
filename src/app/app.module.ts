@@ -1,24 +1,30 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /**
  * @license
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { JwtModule, JWT_OPTIONS } from "@auth0/angular-jwt";
-import { NbSidebarModule, NbMenuModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule, NbChatModule } from "@nebular/theme";
+import {
+  NbSidebarModule,
+  NbMenuModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbWindowModule,
+  NbToastrModule,
+  NbChatModule,
+} from "@nebular/theme";
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { CoreModule } from "./@core/core.module";
 import { ThemeModule } from "./@theme/theme.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { jwtOptionsFactory } from "./helpers/intercerptor/JwtOptions";
-import { DashboardModule } from './pages/dashboard/dashboard.module';
-
+import { DashboardModule } from "./pages/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [AppComponent],
