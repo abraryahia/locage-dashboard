@@ -29,6 +29,9 @@ export class AllDiscountComponent implements OnInit {
 
     deleteDiscount(id:any){
       this.discountService.deletDiscount(id).subscribe((result:any) => { 
+        if (result.message == "Discount code has been deleted.") {
+          this.discounts = this.discounts.filter((discount) => discount._id != id);
+        }
         });
     }
     editDiscount(id:any){
