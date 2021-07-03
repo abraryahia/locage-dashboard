@@ -54,13 +54,5 @@ export class ManageImageComponent implements OnInit {
     this.productservices.updatePhoto(productId, formDta);
     // this.uploadImg.setValue(formDta)
   }
-  gty(page: any) {
-    this.productservices.getProducts(page);
 
-    this.allProducts = this.productservices.products;
-
-    this.productservices.getProductsWithoutLoad().subscribe((pro) => {
-      this.allProducts = pro;
-    });
-  }
 }
