@@ -16,9 +16,9 @@ export class ProductService {
 
   private readonly api = "https://locage.herokuapp.com/api/v1/products";
 
-  getProducts() {
+  getProducts(p:any) {
     return this.http
-      .get<{ product: Product[] }>(this.api + "/vendor?page=1&limit=10")
+      .get<{ product: Product[] }>(this.api + `/vendor?page=${p}&limit=10`)
       .pipe(
         map((pro: any) => {
           return pro?.result?.docs.map((p: any) => {
