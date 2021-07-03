@@ -77,7 +77,7 @@ export class EditProductComponent implements OnInit {
   constructor(private product_service: ProductService, private route: Router) {}
 
   ngOnInit() {
-    this.product_service.getProducts();
+    this.product_service.getProducts(1);
     this.source.load(this.product_service.products);
     this.product_service.getProductsWithoutLoad().subscribe((products) => {
       console.log("hhh", products);
@@ -85,7 +85,7 @@ export class EditProductComponent implements OnInit {
       this.source.load(products);
     });
   }
-
+  
   onEdit(event) {
     //editForm
     this.route.navigateByUrl("/vendor/product/editForm/" + event.data._id);
