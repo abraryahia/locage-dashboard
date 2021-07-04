@@ -1,4 +1,4 @@
-<nb-card class="col-12 col-lg-8 justfy-center">
+<nb-card class="col-12 justfy-center">
   <nb-card-header>
     Add discount
   </nb-card-header>
@@ -56,9 +56,8 @@
   
         <div class="form-group" id="btnDiv">
           <button
-            style="inline-size: 500px"
             [disabled]="discountForm.invalid || buttonSubmit"
-            class="col-12 justify-center btn btn-success"
+            class="col-12 justify-center btn btn-primary"
             type="submit"
             (click)="onSubmit(discountForm.value)"
           >
