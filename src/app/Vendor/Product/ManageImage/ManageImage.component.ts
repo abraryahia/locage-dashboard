@@ -9,8 +9,8 @@ import { ProductService } from "../../../Services/Product.service";
   styleUrls: ["./ManageImage.component.scss"],
 })
 export class ManageImageComponent implements OnInit {
-  p: number;
-
+  p:number ;
+  totalItems:number;
   uploadImg: FormControl;
   //* My Variables
   allProducts: Product[] = [];
@@ -18,7 +18,7 @@ export class ManageImageComponent implements OnInit {
 
   ngOnInit() {
     if (this.productservices.products.length == 0) {
-      this.productservices.getProducts(1);
+      this.productservices.getProducts();
     }
     this.uploadImg = new FormControl("", [Validators.required]);
     this.allProducts = this.productservices.products;
@@ -26,6 +26,8 @@ export class ManageImageComponent implements OnInit {
     this.productservices.getProductsWithoutLoad().subscribe((pro) => {
       this.allProducts = pro;
     });
+    this.gty(this.p);
+
   }
 
   updatImage(event, indexProduct, indexPhoto) {
@@ -54,5 +56,10 @@ export class ManageImageComponent implements OnInit {
     this.productservices.updatePhoto(productId, formDta);
     // this.uploadImg.setValue(formDta)
   }
-
+  gty(page:any){
+    this.productservices.getAllProducts(page).subscribe((res:any)=>{
+      this.allProducts = res.result.docs;
+      this.totalItems = res.totalDocs;
+    })
+  }
 }

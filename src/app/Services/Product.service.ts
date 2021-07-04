@@ -4,21 +4,25 @@ import { Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { NbComponentStatus, NbGlobalPhysicalPosition, NbToastrService } from "@nebular/theme";
+import {
+  NbComponentStatus,
+  NbGlobalPhysicalPosition,
+  NbToastrService,
+} from "@nebular/theme";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductService {
-  constructor(private http: HttpClient,private toast: NbToastrService) {}
+  constructor(private http: HttpClient, private toast: NbToastrService) {}
   products: Product[] = [];
   private productsLoad = new Subject<Product[]>();
 
   private readonly api = "https://locage.herokuapp.com/api/v1/products";
 
-  getProducts(p:any) {
+  getProducts() {
     return this.http
-      .get<{ product: Product[] }>(this.api + `/vendor?page=${p}&limit=10`)
+      .get<{ product: Product[] }>(this.api + `/vendor?page=1&limit=10`)
       .pipe(
         map((pro: any) => {
           return pro?.result?.docs.map((p: any) => {
@@ -72,7 +76,6 @@ export class ProductService {
         },
         (error) => {
           console.log(error);
-
         }
       );
   }
@@ -98,7 +101,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + _product._id, _product)
       .subscribe((res) => {
-
         //  const updateproducts=[...this.products];
         //  let oldIndex= updateproducts.findIndex((i)=>i.id == _product.id);
         //    updateproducts[oldIndex]=_product;
@@ -133,7 +135,6 @@ export class ProductService {
     this.http
       .patch(this.api + "/" + productId + "/manage-photos", img)
       .subscribe((res: any) => {
-
         this.products = this.products.map((pro) => {
           if (pro._id == res.result._id) {
             pro = res.result;
@@ -142,5 +143,35 @@ export class ProductService {
         });
         this.productsLoad.next([...this.products]);
       });
+  }
+
+  getAllProducts(page: any) {
+    return this.http
+      .get<{ product: Product[] }>(`${this.api}/vendor?page= ${page}`)
+      .pipe(
+        map((pro: any) => {
+          return pro?.result?.docs.map((p: any) => {
+            return {
+              _id: p._id,
+              title: p.title,
+              color: p.color,
+              description: p.description,
+              price: p.price,
+              subcategoryId: p.subcategoryId,
+              vendor: p.vendorId,
+              sku: p.sku,
+              quantity: p.quantity,
+              size: p.size,
+              Weight: p.Weight,
+              photos: p.photos,
+              rating: p.rating,
+              discount: p.discount,
+              discountDate: p.discountDate,
+              brand: p.brand,
+              productSpecifications: p.productSpecifications,
+            };
+          });
+        })
+      );
   }
 }

@@ -77,7 +77,7 @@ export class EditProductComponent implements OnInit {
   constructor(private product_service: ProductService, private route: Router) {}
 
   ngOnInit() {
-    this.product_service.getProducts(1);
+    this.product_service.getProducts();
     this.source.load(this.product_service.products);
     this.product_service.getProductsWithoutLoad().subscribe((products) => {
       console.log("hhh", products);
